@@ -40,7 +40,7 @@ class Config:
         ]
 
 
-class _Parser(argparse.ArgumentParser):
+class RaisingArgumentParser(argparse.ArgumentParser):
     """Разборщик, который сообщает об ошибках исключением."""
 
     def error(self, message: str) -> NoReturn:
@@ -50,7 +50,7 @@ class _Parser(argparse.ArgumentParser):
 
 def build_parser() -> argparse.ArgumentParser:
     """Создаёт разборщик параметров командной строки."""
-    parser = _Parser(
+    parser = RaisingArgumentParser(
         prog="depgraph",
         description="Граф зависимостей пакета Ubuntu (apt).",
     )
